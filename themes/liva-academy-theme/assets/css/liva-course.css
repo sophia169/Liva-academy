@@ -1,0 +1,1904 @@
+/*
+ * Course management, editor modals, curriculum, lesson UI, and player styles.
+ */
+
+/* Header layout with Cyan Icon Badge */
+.liva-admin-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.liva-admin-head-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.liva-head-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--liva-radius-lg);
+  background: var(--liva-blue-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.liva-admin-head-left h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--liva-ink);
+  margin: 0 0 3px;
+}
+
+.liva-admin-head-left p {
+  font-size: 13.5px;
+  color: var(--liva-text-soft);
+  margin: 0;
+}
+
+/* 3 Stat Cards with Dark Left Bar */
+.liva-course-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.liva-course-metric-card {
+  border: 1px solid var(--liva-border-light);
+  border-left: 3.5px solid var(--liva-ink-strong);
+  border-radius: var(--liva-radius-lg);
+  padding: 20px 22px;
+  background: var(--liva-white);
+  box-sizing: border-box;
+}
+
+.liva-metric-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.liva-metric-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--liva-text-soft);
+  text-transform: uppercase;
+}
+
+.liva-metric-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--liva-radius-md);
+  background: var(--liva-blue-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.liva-metric-num {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--liva-ink);
+  margin: 12px 0 4px;
+  line-height: 1;
+}
+
+.liva-metric-sub {
+  font-size: 13px;
+  color: var(--liva-text-soft);
+  font-weight: 500;
+}
+
+/* Stacked Pill Filter Bars */
+.liva-filter-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.liva-filter-line {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.liva-filter-line strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--liva-ink);
+  width: 125px;
+  flex-shrink: 0;
+}
+
+.liva-filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.liva-fpill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 105px;
+  height: 27.4px;
+  padding: 0;
+  border-radius: var(--liva-radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+/* First "All" pill width matches Placement Test filter */
+.liva-filter-pills .liva-fpill:first-child {
+  width: 72px;
+}
+
+/* Base pill colors */
+.liva-fpill-all,
+.liva-fpill-basic,
+.liva-fpill-published {
+  background: #dff2fb;
+  color: #204564;
+}
+
+.liva-fpill-intermediate {
+  background: #317a98;
+  color: var(--liva-white);
+}
+
+.liva-fpill-advanced {
+  background: var(--liva-navy);
+  color: var(--liva-white);
+}
+
+.liva-fpill-draft {
+  background: #e2e5ea;
+  color: #475467;
+}
+
+/* ── Hover Highlights (consistent with Placement Test #cde8f6) ── */
+.liva-fpill-all:hover,
+.liva-fpill-basic:hover,
+.liva-fpill-published:hover {
+  background: #cde8f6;
+  color: #0f2c47;
+}
+
+.liva-fpill-intermediate:hover {
+  background: #256684;
+}
+
+.liva-fpill-advanced:hover {
+  background: #143e68;
+}
+
+.liva-fpill-draft:hover {
+  background: #d5d9e0;
+}
+
+/* ── Active Selection States ── */
+.liva-fpill.active {
+  font-weight: 600;
+}
+
+.liva-fpill-all.active,
+.liva-fpill-basic.active,
+.liva-fpill-published.active {
+  background: #dff2fb;
+  border-color: #244b6b;
+  color: #0f2c47;
+}
+
+.liva-fpill-all.active:hover,
+.liva-fpill-basic.active:hover,
+.liva-fpill-published.active:hover {
+  background: #cde8f6;
+}
+
+.liva-fpill-intermediate.active {
+  border-color: var(--liva-ink);
+}
+
+.liva-fpill-advanced.active {
+  border-color: #317a98;
+}
+
+.liva-fpill-draft.active {
+  border-color: #244b6b;
+}
+
+/* Table Design */
+.liva-admin-courses-table thead tr {
+  background: #dff2fb;
+}
+
+/* Align # and Course title to the left */
+.liva-admin-courses-table th:first-child,
+.liva-admin-courses-table td.liva-col-order {
+  padding-left: 20px !important;
+  text-align: left;
+  color: var(--liva-text-soft);
+  font-weight: 500;
+}
+
+.liva-admin-courses-table td.liva-col-order {
+  color: var(--liva-ink);
+}
+
+/* Center LEVEL, STATUS, STUDENTS, PRICE, and ACTION columns */
+.liva-admin-courses-table th:nth-child(3),
+.liva-admin-courses-table td:nth-child(3),
+.liva-admin-courses-table th:nth-child(4),
+.liva-admin-courses-table td:nth-child(4),
+.liva-admin-courses-table th:nth-child(5),
+.liva-admin-courses-table td:nth-child(5),
+.liva-admin-courses-table th:nth-child(6),
+.liva-admin-courses-table td:nth-child(6),
+.liva-admin-courses-table th:nth-child(7),
+.liva-admin-courses-table td:nth-child(7) {
+  text-align: center;
+}
+
+.liva-admin-courses-table td {
+  padding: 15px 16px;
+  font-size: 14px;
+  color: var(--liva-ink);
+  border-bottom: 1px solid #edf0f3;
+  vertical-align: middle;
+}
+
+.liva-col-course-title {
+  font-weight: 500;
+}
+
+.liva-admin-courses-table .liva-table-actions {
+  justify-content: center;
+}
+
+/* Badges */
+.liva-course-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 105px;
+  height: 27px;
+  border-radius: var(--liva-radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.liva-cbadge-basic,
+.liva-cbadge-published {
+  background: #dff2fb;
+  color: #204564;
+}
+
+.liva-cbadge-intermediate {
+  background: #317a98;
+  color: var(--liva-white);
+}
+
+.liva-cbadge-advanced {
+  background: var(--liva-navy);
+  color: var(--liva-white);
+}
+
+.liva-cbadge-draft {
+  background: #e2e5ea;
+  color: #475467;
+}
+
+/* Pagination Box Layout */
+.liva-courses-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 36px 0 10px;
+}
+
+.liva-pbox {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--liva-ink);
+  background: var(--liva-white);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.liva-pbox:hover:not(.disabled) {
+  border-color: var(--liva-blue);
+  color: var(--liva-blue);
+}
+
+.liva-pbox.active {
+  border-color: var(--liva-ink);
+  font-weight: 700;
+}
+
+.liva-pbox.disabled {
+  background: #c5cbd2;
+  border-color: #c5cbd2;
+  color: #7d8793;
+  pointer-events: none;
+}
+
+.liva-pbox-dots {
+  padding: 0 4px;
+  font-size: 14px;
+  color: var(--liva-text-soft);
+}
+
+@media (max-width: 900px) {
+  .liva-course-metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .liva-filter-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+.liva-col-course-title .liva-course-title-link {
+  color: var(--liva-ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.liva-col-course-title .liva-course-title-link:hover {
+  color: var(--liva-blue);
+  text-decoration: underline;
+}
+
+/* ── Add Course Modal Layout ── */
+.liva-modal-add-course,
+.liva-add-course-modal {
+  max-width: 540px;
+  width: 100%;
+  border-radius: var(--liva-radius-3xl);
+  padding: 32px 32px 28px;
+  box-shadow: 0 24px 60px rgba(11, 43, 75, 0.16);
+  background: var(--liva-white);
+  box-sizing: border-box;
+}
+
+.liva-modal-add-course .liva-modal-head,
+.liva-add-course-modal .liva-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.liva-modal-add-course .liva-modal-head h2,
+.liva-add-course-modal .liva-modal-head h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--liva-ink);
+  margin: 0;
+}
+
+.liva-modal-add-course .liva-modal-close,
+.liva-add-course-modal .liva-modal-close {
+  border: 0;
+  background: transparent;
+  color: var(--liva-ink);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liva-modal-add-course .liva-form-group,
+.liva-add-course-modal .liva-form-group {
+  margin-bottom: 18px;
+}
+
+.liva-modal-add-course .liva-form-group label,
+.liva-add-course-modal .liva-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--liva-ink);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.liva-modal-add-course .liva-input,
+.liva-modal-add-course .liva-select,
+.liva-add-course-modal .liva-input,
+.liva-add-course-modal .liva-select {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-md);
+  padding: 0 14px;
+  font-size: 14px;
+  color: var(--liva-ink);
+  box-sizing: border-box;
+  background: var(--liva-white);
+  outline: none;
+}
+
+.liva-modal-add-course .liva-select,
+.liva-add-course-modal .liva-select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23161c27' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 36px;
+}
+
+.liva-modal-add-course .liva-textarea,
+.liva-add-course-modal .liva-textarea {
+  width: 100%;
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-md);
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--liva-ink);
+  resize: none;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* ── Canvas Dropzones & Interactive Framing Controls ── */
+.liva-canvas-dropzone-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.liva-avatar-wrap {
+  width: 170px;
+}
+
+.liva-cover-wrap {
+  width: 100%;
+}
+
+.liva-dropzone {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1.5px dashed #b8c4d1 !important;
+  border-radius: var(--liva-radius-xl) !important;
+  background: var(--liva-white) !important;
+  cursor: pointer;
+  position: relative !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.liva-dropzone-avatar {
+  width: 170px !important;
+  height: 140px !important;
+  padding: 16px !important;
+}
+
+.liva-dropzone-cover {
+  width: 100% !important;
+  height: 135px !important;
+  padding: 20px !important;
+}
+
+.liva-dropzone:hover {
+  border-color: var(--liva-blue) !important;
+  background-color: var(--liva-surface-subtle) !important;
+}
+
+.liva-dropzone.has-image {
+  border-style: solid !important;
+  border-color: var(--liva-blue) !important;
+  cursor: grab !important;
+}
+
+.liva-dropzone.is-dragging {
+  cursor: grabbing !important;
+}
+
+.liva-dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  text-align: center;
+}
+
+.liva-dropzone-content span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--liva-text-soft);
+  line-height: 1.35;
+}
+
+.liva-dropzone-icon {
+  stroke: #5f6b7c;
+  display: block;
+}
+
+/* Interactive Preview Canvas */
+.liva-editor-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  z-index: 2;
+}
+
+/* Drag to reposition indicator badge */
+.liva-canvas-hint {
+  display: none;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(17, 23, 38, 0.72);
+  color: var(--liva-white);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: var(--liva-radius-pill);
+  pointer-events: none;
+  z-index: 4;
+  white-space: nowrap;
+}
+
+.liva-dropzone.has-image .liva-canvas-hint {
+  display: block;
+}
+
+/* Top-right replace button */
+.liva-canvas-replace {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--liva-radius-round);
+  background: rgba(17, 23, 38, 0.65);
+  color: var(--liva-white);
+  border: none;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: background-color 0.15s ease;
+}
+
+.liva-canvas-replace:hover {
+  background: var(--liva-danger);
+}
+
+.liva-dropzone.has-image .liva-canvas-replace {
+  display: flex;
+}
+
+/* Zoom Slider */
+.liva-canvas-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 4px;
+}
+
+.liva-canvas-controls span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--liva-muted);
+}
+
+.liva-zoom-range {
+  flex: 1;
+  height: 4px;
+  accent-color: var(--liva-blue);
+  cursor: pointer;
+}
+
+/* ── Modal Action Buttons ── */
+.liva-modal-add-course .liva-modal-actions,
+.liva-add-course-modal .liva-course-modal-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  margin-top: 26px !important;
+}
+
+.liva-btn-cancel-modal,
+.liva-btn-cancel {
+  background: var(--liva-white) !important;
+  border: 1.5px solid var(--liva-ink) !important;
+  color: var(--liva-ink) !important;
+  border-radius: var(--liva-radius-md) !important;
+  padding: 10px 24px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.liva-btn-cancel-modal:hover,
+.liva-btn-cancel:hover {
+  background: #f4f7fa !important;
+}
+
+.liva-modal-add-course .liva-btn-primary,
+.liva-add-course-modal .liva-btn-primary {
+  background: var(--liva-blue-ui) !important;
+  border-color: var(--liva-blue-ui) !important;
+  color: var(--liva-white) !important;
+  border-radius: var(--liva-radius-md) !important;
+  padding: 10px 22px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+/* Header icon links */
+.liva-icon-link svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: none !important;
+  stroke: var(--liva-ink) !important;
+  stroke-width: 1.6 !important;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.liva-icon-link svg * {
+  fill: none !important;
+  stroke: var(--liva-ink) !important;
+  stroke-width: 1.6 !important;
+}
+
+/* Sidebar navigation icons */
+.liva-app-nav a .liva-nav-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Search bar magnifying icon */
+.liva-search-input-wrap > span svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  stroke: var(--liva-icon-muted);
+}
+
+/* Action button icons in data tables */
+.liva-icon-btn svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ADD MODULE & ADD LESSON MODALS
+   ════════════════════════════════════════════════════════════════ */
+
+.liva-modal-standard {
+  max-width: 520px !important;
+  width: 100% !important;
+  border-radius: var(--liva-radius-3xl) !important;
+  padding: 32px 32px 28px !important;
+  background: var(--liva-white) !important;
+  box-shadow: 0 24px 60px rgba(11, 43, 75, 0.16) !important;
+}
+
+.liva-modal-subtitle {
+  font-size: 13.5px !important;
+  color: var(--liva-muted) !important;
+  margin: 4px 0 0 !important;
+  font-weight: 500 !important;
+}
+
+/* ── 3 Type Cards (Video, PDF, Quiz) ── */
+.liva-type-picker-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 14px !important;
+  margin: 22px 0 20px !important;
+}
+
+.liva-type-card {
+  background: var(--liva-white) !important;
+  border: 1px solid var(--liva-border) !important;
+  border-radius: var(--liva-radius-lg) !important;
+  padding: 18px 12px 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  outline: none !important;
+}
+
+/* Color inheritance without artificial stroke injection */
+.liva-type-card .liva-type-icon-box {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.liva-type-card .liva-type-icon-box svg {
+  width: 28px !important;
+  height: 28px !important;
+  display: block !important;
+}
+
+.liva-type-card.active .liva-type-icon-box {
+  color: var(--liva-blue) !important;
+}
+
+.liva-type-card .liva-type-label {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  color: var(--liva-icon-muted) !important;
+}
+
+.liva-type-card:hover {
+  border-color: var(--liva-blue) !important;
+}
+
+/* Selected Type Card (Soft blue background) */
+.liva-type-card.active {
+  background: var(--liva-blue-tint) !important;
+  border-color: #b9e0ef !important;
+}
+
+.liva-type-card.active .liva-type-label {
+  color: var(--liva-blue) !important;
+}
+
+/* ── Lesson Dropzone Box ── */
+.liva-lesson-dropzone {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 140px !important;
+  border: 1.5px dashed #b8c4d1 !important;
+  border-radius: var(--liva-radius-xl) !important;
+  background: var(--liva-white) !important;
+  cursor: pointer !important;
+  padding: 24px 16px !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s ease, background-color 0.15s ease !important;
+}
+
+.liva-lesson-dropzone:hover {
+  border-color: var(--liva-blue) !important;
+  background-color: var(--liva-surface-subtle) !important;
+}
+
+.liva-lesson-dropzone-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 6px !important;
+}
+
+.liva-monitor-icon {
+  margin-bottom: 4px !important;
+}
+
+.liva-dropzone-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #4b5563 !important;
+}
+
+.liva-dropzone-sub {
+  font-size: 12px !important;
+  color: var(--liva-icon-muted) !important;
+}
+
+/* Add Questions Pill in Quiz Box */
+.liva-btn-add-q-pill {
+  margin-top: 10px !important;
+  background: var(--liva-white) !important;
+  border: 1px solid var(--liva-border) !important;
+  border-radius: var(--liva-radius-sm) !important;
+  padding: 6px 14px !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  color: var(--liva-ink) !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.liva-btn-add-q-pill:hover {
+  border-color: var(--liva-blue) !important;
+  color: var(--liva-blue) !important;
+  background: var(--liva-surface-subtle) !important;
+}
+
+/* ── Custom Dark Checkbox ── */
+.liva-checkbox-group {
+  margin: 18px 0 10px !important;
+}
+
+.liva-custom-checkbox {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  position: relative !important;
+  line-height: 1 !important;
+}
+
+.liva-custom-checkbox[hidden] {
+  display: none !important;
+}
+
+.liva-custom-checkbox input[type="checkbox"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  cursor: pointer !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+.liva-checkmark {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0 !important;
+  background-color: var(--liva-white) !important;
+  border: 1.5px solid var(--liva-ink) !important;
+  border-radius: var(--liva-radius-xs) !important;
+  display: inline-flex !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  transition: all 0.15s ease !important;
+}
+
+.liva-custom-checkbox input[type="checkbox"]:checked ~ .liva-checkmark {
+  background-color: var(--liva-ink) !important;
+  border-color: var(--liva-ink) !important;
+}
+
+.liva-checkmark:after {
+  content: "" !important;
+  position: absolute !important;
+  display: none !important;
+  left: 5px !important;
+  top: 1px !important;
+  width: 4px !important;
+  height: 9px !important;
+  border: solid var(--liva-white) !important;
+  border-width: 0 2px 2px 0 !important;
+  transform: rotate(45deg) !important;
+}
+
+.liva-custom-checkbox input[type="checkbox"]:checked ~ .liva-checkmark:after {
+  display: block !important;
+}
+
+.liva-checkbox-label {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: var(--liva-ink) !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Position Select Down Arrow */
+.liva-select-wrapper {
+  position: relative !important;
+  width: 100% !important;
+}
+
+.liva-position-select {
+  padding-right: 36px !important;
+  color: var(--liva-ink) !important;
+}
+
+/* ── Edit Course Button ── */
+.liva-btn-edit-course {
+  background: var(--liva-blue-ui) !important;
+  border: 1px solid var(--liva-blue-ui) !important;
+  color: var(--liva-white) !important;
+  border-radius: var(--liva-radius-md) !important;
+  padding: 8px 18px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.liva-btn-edit-course:hover {
+  background: #1c5d79 !important;
+  border-color: #1c5d79 !important;
+}
+
+.liva-btn-edit-course svg {
+  stroke: var(--liva-white) !important;
+  stroke-width: 2 !important;
+}
+
+/* ── Curriculum Accordion & Module Cards ── */
+.liva-curriculum-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* ── Clean Collapsed & Expanded Module Styling ── */
+.liva-curriculum-module-card {
+  background: #F6F7F9 !important;
+  border: 1px solid #e2e7ec !important;
+  border-radius: var(--liva-radius-md) !important;
+  overflow: visible !important;
+  transition: all 0.15s ease !important;
+}
+
+.liva-curriculum-module-card.open {
+  background: var(--liva-white) !important;
+}
+
+.liva-curriculum-module-head {
+  padding: 16px 20px !important;
+  background: #F6F7F9 !important;
+  border-radius: 7px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.liva-curriculum-module-card.open .liva-curriculum-module-head {
+  border-radius: 7px 7px 0 0 !important;
+  border-bottom: 1px solid #edf1f5 !important;
+}
+
+.liva-curriculum-module-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--liva-ink);
+}
+
+.liva-curriculum-module-meta {
+  font-size: 13px;
+  color: var(--liva-muted);
+}
+
+.liva-curriculum-module-head .liva-chevron {
+  transition: transform 0.2s ease;
+}
+
+.liva-curriculum-module-card.open .liva-chevron {
+  transform: rotate(180deg);
+}
+
+.liva-curriculum-module-body {
+  display: none;
+  background: var(--liva-white);
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+
+.liva-curriculum-module-card.open .liva-curriculum-module-body {
+  display: block;
+}
+
+/* ── Lesson Row Items ── */
+.liva-curriculum-lesson-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.liva-curriculum-lesson-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f1f4f8;
+  font-size: 13.5px;
+  color: #242933;
+  background: transparent !important;
+  transition: background-color 0.15s ease;
+}
+
+.liva-curriculum-lesson-row:hover {
+  background: #fafcfd !important;
+}
+
+.liva-curriculum-lesson-row.active {
+  background: transparent !important;
+}
+
+.liva-lesson-row-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+/* ── External Icon Sizing for Play, Video_2, and Import ── */
+.liva-lesson-type-ico {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  color: #969696 !important;
+  flex-shrink: 0 !important;
+}
+
+.liva-type-icon-box svg {
+  width: 28px !important;
+  height: 28px !important;
+  display: block !important;
+}
+
+.liva-lesson-title-text {
+  font-weight: 500;
+  color: var(--liva-ink);
+}
+
+.liva-lesson-row-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── 3-Dots Button & Floating Menu ── */
+.liva-lesson-menu-wrap {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+.liva-dots-trigger {
+  width: 28px !important;
+  height: 28px !important;
+  display: grid !important;
+  place-items: center !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--liva-radius-sm) !important;
+  color: var(--liva-text-soft) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  transition: all 0.15s ease !important;
+}
+
+.liva-dots-trigger:hover,
+.liva-lesson-menu-wrap.open .liva-dots-trigger {
+  border-color: var(--liva-border) !important;
+  background: var(--liva-white) !important;
+}
+
+.liva-dots-dropdown {
+  position: absolute !important;
+  top: calc(100% + 4px) !important;
+  right: 0 !important;
+  background: var(--liva-white) !important;
+  border: 1px solid #e5e9ee !important;
+  border-radius: var(--liva-radius-xl) !important;
+  box-shadow: 0 10px 30px rgba(17, 23, 38, 0.12) !important;
+  min-width: 195px !important;
+  padding: 8px 0 !important;
+  z-index: 100 !important;
+  display: none !important;
+  flex-direction: column !important;
+}
+
+.liva-lesson-menu-wrap.open .liva-dots-dropdown {
+  display: flex !important;
+}
+
+.liva-dots-item {
+  width: 100% !important;
+  padding: 9px 18px !important;
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--liva-ink) !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  transition: background-color 0.12s ease !important;
+  box-sizing: border-box !important;
+}
+
+.liva-dots-item:hover {
+  background: var(--liva-soft) !important;
+}
+
+.liva-dots-item svg {
+  flex-shrink: 0 !important;
+}
+
+.liva-dots-item-danger {
+  color: var(--liva-danger) !important;
+}
+
+.liva-dots-item-danger:hover {
+  background: #fde8e8 !important;
+}
+
+/* ── Full-Width "+ Add lesson" Row Button (Picture 1) ── */
+.liva-module-add-lesson-row {
+  padding: 14px 18px 18px 18px !important;
+}
+
+.liva-full-add-lesson-btn {
+  width: 100% !important;
+  height: 46px !important;
+  background: var(--liva-white) !important;
+  border: 1px solid var(--liva-border) !important;
+  border-radius: var(--liva-radius-md) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding: 0 16px !important;
+  color: #242933 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.liva-full-add-lesson-btn:hover {
+  border-color: var(--liva-blue) !important;
+  background: var(--liva-surface-subtle) !important;
+  color: var(--liva-blue) !important;
+}
+
+.liva-full-add-lesson-btn svg {
+  stroke: currentColor !important;
+  stroke-width: 2 !important;
+}
+
+/* ── Full-Width "+ Add Module" Card Button ── */
+.liva-curriculum-add-module-wrap {
+  margin-top: 18px !important;
+  margin-bottom: 24px !important;
+  width: 100% !important;
+}
+
+.liva-full-add-module-btn {
+  width: 100% !important;
+  height: 52px !important;
+  background: var(--liva-white) !important;
+  border: 1px solid var(--liva-border) !important;
+  border-radius: var(--liva-radius-lg) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  color: #242933 !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.liva-full-add-module-btn:hover {
+  border-color: var(--liva-blue) !important;
+  background: var(--liva-surface-subtle) !important;
+  color: var(--liva-blue) !important;
+}
+
+.liva-full-add-module-btn svg {
+  stroke: currentColor !important;
+  stroke-width: 2 !important;
+}
+
+/* ── Modal Backdrop State Rules ── */
+.liva-modal-backdrop[hidden] {
+  display: none !important;
+}
+
+.liva-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 18, 31, 0.46);
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow: auto;
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   COURSE SETTINGS TAB
+   ════════════════════════════════════════════════════════════════ */
+
+.liva-course-settings-wrap {
+  max-width: 580px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.liva-course-settings-form .liva-form-group {
+  margin-bottom: 20px;
+}
+
+.liva-course-settings-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--liva-ink);
+  margin-bottom: 8px;
+}
+
+.liva-course-settings-form .liva-input {
+  height: 44px;
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-md);
+  padding: 0 14px;
+  font-size: 14px;
+  color: var(--liva-ink);
+  background: var(--liva-white);
+  box-sizing: border-box;
+}
+
+.liva-course-settings-form .liva-select {
+  height: 44px;
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-md);
+  padding: 0 34px 0 14px;
+  font-size: 14px;
+  color: var(--liva-ink);
+  background-color: var(--liva-white);
+  box-sizing: border-box;
+}
+
+/* ── Select Dropdowns: 10px Chevron Spacing ── */
+.liva-select,
+.liva-course-settings-form .liva-select,
+.liva-modal .liva-select,
+.liva-filter-row .liva-select,
+.liva-position-select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23161c27' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 10px center !important;
+  padding-right: 28px !important;
+}
+
+/* Invert chevron to point upwards when focused/open */
+.liva-select:focus,
+.liva-course-settings-form .liva-select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23161c27' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 15 12 9 18 15'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-position: right 10px center !important;
+}
+
+/* ── Avatar & Cover Image Previews ── */
+.liva-settings-images-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.liva-settings-avatar-col {
+  width: 170px;
+  flex-shrink: 0;
+}
+
+.liva-settings-cover-col {
+  flex: 1;
+}
+
+/* ── Interactive Image Pickers (Avatar & Cover) ── */
+.liva-settings-image-picker {
+  position: relative !important;
+  display: block !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  border-radius: var(--liva-radius-xl) !important;
+  box-sizing: border-box !important;
+  transition: opacity 0.15s ease, border-color 0.15s ease !important;
+}
+
+.liva-settings-avatar-picker {
+  width: 170px !important;
+  height: 140px !important;
+  border: 1.5px dashed #b8c4d1 !important;
+}
+
+.liva-settings-cover-picker {
+  width: 100% !important;
+  height: 140px !important;
+  border: 1px solid var(--liva-border) !important;
+}
+
+.liva-settings-image-picker img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: inherit !important;
+}
+
+.liva-settings-image-picker:hover {
+  border-color: var(--liva-blue) !important;
+}
+
+/* Dark hover overlay */
+.liva-settings-img-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(17, 27, 43, 0.45) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  transition: opacity 0.15s ease !important;
+  border-radius: inherit !important;
+}
+
+.liva-settings-img-overlay span {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: var(--liva-ink) !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  padding: 4px 10px !important;
+  border-radius: var(--liva-radius-pill) !important;
+  pointer-events: none !important;
+}
+
+.liva-settings-image-picker:hover .liva-settings-img-overlay {
+  opacity: 1 !important;
+}
+
+/* ── Save Changes Bottom Alignment ── */
+.liva-settings-submit-bottom {
+  margin-top: 24px !important;
+}
+
+.liva-settings-submit-bottom .liva-btn-primary {
+  background: var(--liva-blue-ui) !important;
+  border-color: var(--liva-blue-ui) !important;
+  color: var(--liva-white) !important;
+  border-radius: var(--liva-radius-md) !important;
+  padding: 10px 24px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.liva-settings-submit-bottom .liva-btn-primary:hover {
+  background: #1c5d79 !important;
+  border-color: #1c5d79 !important;
+}
+
+/* ── Danger Zone Card (Red Border) ── */
+.liva-settings-danger-card {
+  border: 1px solid #f4c2c2;
+  border-radius: var(--liva-radius-xl);
+  background: var(--liva-white);
+  padding: 24px 22px;
+  margin-top: 36px;
+  box-sizing: border-box;
+}
+
+.liva-danger-block h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--liva-danger);
+  margin: 0 0 6px;
+}
+
+.liva-danger-block p {
+  font-size: 13px;
+  color: var(--liva-text-soft);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.liva-danger-divider {
+  height: 1px;
+  background: #f3d1d1;
+  margin: 20px 0;
+}
+
+.liva-btn-outline-danger {
+  background: var(--liva-white);
+  border: 1.5px solid var(--liva-danger);
+  color: var(--liva-danger);
+  border-radius: var(--liva-radius-sm);
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.15s ease;
+}
+
+.liva-btn-outline-danger:hover {
+  background: #fde8e8;
+}
+
+/* ── Global External SVG Icon Scaling ── */
+.liva-full-add-lesson-btn svg,
+.liva-full-add-module-btn svg,
+.liva-btn-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+.liva-lesson-type-ico svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+}
+/* ── Clean Raw Icon Sizing & Color Inheritance ── */
+svg.liva-raw-icon {
+  display: block;
+}
+
+.liva-type-card {
+  color: var(--liva-icon-muted);
+}
+
+.liva-type-card.active {
+  color: var(--liva-blue);
+}
+
+.liva-type-card .liva-type-icon-box {
+  color: inherit !important;
+}
+
+.liva-type-card svg.liva-raw-icon {
+  width: 28px !important;
+  height: 28px !important;
+  color: inherit !important;
+}
+
+.liva-monitor-icon {
+  color: #5f6b7c;
+}
+
+.liva-monitor-icon svg {
+  width: 36px !important;
+  height: 36px !important;
+  display: block !important;
+  color: inherit !important;
+}
+
+.liva-lesson-type-ico {
+  color: var(--liva-ink);
+}
+
+.liva-lesson-type-ico svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+  color: inherit !important;
+}
+/* ── Custom LMS Player Container ── */
+.liva-custom-player-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  background: #000000 !important;
+  border-radius: var(--liva-radius-lg) !important;
+  overflow: hidden !important;
+}
+
+.liva-custom-player-wrapper iframe {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+}
+
+/* Invisible barrier prevents clicking video title, avatar, or copy links */
+.liva-player-top-shield {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 60px !important;
+  z-index: 10 !important;
+  background: transparent !important;
+}
+
+/* ── Bottom Custom Control Bar ── */
+.liva-custom-controls {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 48px !important;
+  background: linear-gradient(transparent, rgba(10, 15, 25, 0.95)) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 0 16px !important;
+  z-index: 20 !important;
+  box-sizing: border-box !important;
+}
+
+.liva-ctrl-btn {
+  background: transparent !important;
+  border: none !important;
+  color: var(--liva-white) !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  padding: 4px 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.liva-ctrl-btn:hover {
+  color: var(--liva-sky) !important;
+}
+
+.liva-seek-slider {
+  flex: 1 !important;
+  height: 5px !important;
+  accent-color: var(--liva-blue) !important;
+  cursor: pointer !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-radius: var(--liva-radius-xs) !important;
+}
+
+.liva-ctrl-time {
+  color: var(--liva-white) !important;
+  font-size: 12px !important;
+  font-family: var(--liva-font) !important;
+  white-space: nowrap !important;
+}
+/* ── Accordion Chevron Styled Like Header Dropdowns ── */
+.liva-accordion-title .liva-chevron {
+  display: inline-block !important;
+  width: 5.5px !important;
+  height: 5.5px !important;
+  border-right: 1.5px solid currentColor !important;
+  border-bottom: 1.5px solid currentColor !important;
+  transform: rotate(225deg) !important; /* Pointing UP when open */
+  margin-right: 10px !important;
+  margin-top: 2px !important;
+  vertical-align: middle !important;
+  transition: transform 0.2s ease, margin-top 0.2s ease !important;
+}
+
+.liva-accordion-item:not(.open) .liva-accordion-title .liva-chevron {
+  transform: rotate(45deg) !important; /* Pointing DOWN when closed */
+  margin-top: -3px !important;
+}
+
+/* ── Video_2 & Preview Icon Styling ── */
+.liva-lecture-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.liva-lecture-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 18px !important;
+  height: 18px !important;
+  color: var(--liva-muted) !important;
+  flex-shrink: 0 !important;
+}
+
+.liva-lecture-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+}
+
+.liva-preview-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  color: var(--liva-blue-ui) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+}
+
+.liva-preview-badge svg {
+  width: 22px !important;
+  height: 22px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+/* ── Empty State arrangement.svg Sizing ── */
+.liva-empty .symbol {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 16px !important;
+}
+
+.liva-empty .symbol svg {
+  width: 36px !important;
+  height: 36px !important;
+  display: block !important;
+  stroke: var(--liva-ink) !important;
+}
+
+/* ── Lesson Duration Meta Icons ── */
+.liva-lesson-duration-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 12px !important;
+  color: var(--liva-muted) !important;
+}
+
+.liva-lesson-duration-pill svg {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+  color: var(--liva-muted) !important;
+  fill: currentColor !important;
+  stroke: none !important;
+  stroke-width: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.liva-lesson-duration-pill svg * {
+  fill: currentColor !important;
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+
+/* ── Transparent Click Shields for Native YouTube Embed (Preferred Version) ── */
+.liva-yt-shield-top {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 64px !important;
+  z-index: 10 !important;
+  background: transparent !important;
+  cursor: default !important;
+}
+
+.liva-yt-shield-bottom {
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 48px !important;
+  width: 135px !important;
+  height: 48px !important;
+  z-index: 10 !important;
+  background: transparent !important;
+  cursor: default !important;
+}
+/* ── Reorder Lessons Modal List ── */
+.liva-reorder-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin-bottom: 22px !important;
+  max-height: 340px !important;
+  overflow-y: auto !important;
+  padding-right: 4px !important;
+}
+
+.liva-reorder-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 14px !important;
+  background: var(--liva-surface-subtle) !important;
+  border: 1px solid #e2e7ec !important;
+  border-radius: var(--liva-radius-md) !important;
+  box-sizing: border-box !important;
+  transition: background 0.15s ease, border-color 0.15s ease !important;
+}
+
+.liva-reorder-row:hover {
+  background: var(--liva-white) !important;
+  border-color: var(--liva-blue-ui) !important;
+}
+
+.liva-reorder-num {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--liva-muted) !important;
+  min-width: 22px !important;
+}
+
+.liva-reorder-title {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--liva-ink) !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.liva-reorder-actions {
+  display: flex !important;
+  gap: 4px !important;
+}
+
+.liva-reorder-btn {
+  width: 28px !important;
+  height: 28px !important;
+  border: 1px solid var(--liva-border) !important;
+  border-radius: var(--liva-radius-sm) !important;
+  background: var(--liva-white) !important;
+  color: var(--liva-text-soft) !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.15s ease !important;
+}
+
+.liva-reorder-btn:hover {
+  border-color: var(--liva-blue-ui) !important;
+  color: var(--liva-blue-ui) !important;
+  background: var(--liva-blue-tint) !important;
+}
+
+/* ── Admin Preview: Highlight for Hidden Lessons ── */
+.liva-lecture-row.liva-lesson-admin-hidden {
+  background: #fffbeb !important; /* Soft warm amber highlight */
+  border-left: 4px solid var(--liva-warning) !important;
+  padding-left: 16px !important;
+}
+
+.liva-lecture-row.liva-lesson-admin-hidden:hover {
+  background: #fef3c7 !important;
+}
+
+.liva-pill-admin-hidden {
+  font-size: 11px !important;
+  padding: 2px 9px !important;
+  margin-left: 8px !important;
+  background: #e2e8f0 !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+/* ── Module Header 3-Dots Trigger ── */
+.liva-module-menu-wrap {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.liva-module-menu-wrap .liva-dots-trigger {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 16px !important;
+  color: var(--liva-muted) !important;
+  border-radius: var(--liva-radius-xs) !important;
+}
+
+.liva-module-menu-wrap .liva-dots-trigger:hover {
+  background: var(--liva-white) !important;
+  color: var(--liva-ink) !important;
+}
+
+.liva-curriculum-module-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+/* ── Custom Radio Button Switcher ── */
+.liva-custom-radio-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  position: relative !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  color: var(--liva-ink) !important;
+}
+
+.liva-custom-radio-label input[type="radio"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.liva-radio-icon-wrap {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  flex-shrink: 0 !important;
+}
+
+.liva-radio-icon-wrap svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+}
+
+/* By default, show the unchecked ring, hide the checked dot */
+.liva-option-field-row .liva-custom-radio-label .liva-radio-icon-wrap svg:first-child {
+  display: block !important;
+}
+.liva-option-field-row .liva-custom-radio-label .liva-radio-icon-wrap svg:last-child {
+  display: none !important;
+}
+
+/* When checked, hide the unchecked ring, show the checked ring + dot */
+.liva-option-field-row input[type="radio"]:checked ~ .liva-radio-icon-wrap svg:first-child {
+  display: none !important;
+}
+.liva-option-field-row input[type="radio"]:checked ~ .liva-radio-icon-wrap svg:last-child {
+  display: block !important;
+}

@@ -1,0 +1,58 @@
+/*
+ * Liva Academy design tokens
+ *
+ * Keep raw design values here. Component/page styles should consume these variables
+ * instead of introducing another near-duplicate color/radius/layout constant.
+ */
+:root {
+  /* Brand */
+  --liva-navy: #0b2b4b;
+  --liva-deep: #0f4a76;
+  --liva-blue: #29779b;
+  --liva-blue-ui: #28789b; /* Legacy UI shade; intentionally kept exact for visual parity. */
+  --liva-mid: #61a5c2;
+  --liva-sky: #93c4da;
+  --liva-pale: #d9f2fb;
+  --liva-blue-tint: #dff4fc;
+
+  /* Neutrals / surfaces */
+  --liva-white: #fff;
+  --liva-soft: #f4f8fb;
+  --liva-surface-subtle: #f8fafc;
+  --liva-border: #d9e1e8;
+  --liva-border-light: #e9edf1;
+  --liva-text: #161c27;
+  --liva-ink: #171b26;
+  --liva-ink-strong: #111726;
+  --liva-text-soft: #556270;
+  --liva-muted: #687384;
+  --liva-icon-muted: #8c97a7;
+
+  /* States */
+  --liva-danger: #c71920;
+  --liva-success: #17865b;
+  --liva-warning: #ca8b04;
+
+  /* Typography */
+  --liva-font: "Inter", "Segoe UI", Arial, sans-serif;
+
+  /* Radius scale */
+  --liva-radius-xs: 4px;
+  --liva-radius-sm: 6px;
+  --liva-radius-md: 8px;
+  --liva-radius-lg: 10px;
+  --liva-radius-xl: 12px;
+  --liva-radius-2xl: 14px;
+  --liva-radius-3xl: 16px;
+  --liva-radius-pill: 999px;
+  --liva-radius-round: 50%;
+  --liva-radius: var(--liva-radius-2xl); /* Backward-compatible alias. */
+
+  /* Elevation / focus */
+  --liva-shadow: 0 10px 30px rgba(11, 43, 75, 0.08);
+  --liva-focus-ring: 0 0 0 3px rgba(41, 119, 155, 0.12);
+
+  /* Shared layout */
+  --liva-header-height: 72px;
+  --liva-sidebar-width: 273px;
+}

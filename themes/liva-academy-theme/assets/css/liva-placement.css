@@ -1,0 +1,773 @@
+/*
+ * Placement-test administration, runner, scoring, and result styles.
+ */
+
+/* ── Placement Test: Scoring & Levels Tab ── */
+.liva-scoring-panel {
+  padding: 34px 38px 48px;
+  background: var(--liva-white);
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-xl);
+}
+
+.liva-scoring-head h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--liva-ink);
+  margin: 0 0 4px;
+}
+
+.liva-scoring-head p {
+  font-size: 13.5px;
+  color: var(--liva-muted);
+  margin: 0 0 24px;
+}
+
+/* Stage Weighting Table */
+.liva-stage-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.liva-stage-table thead tr {
+  background: #dff2fb;
+  border-bottom: 0;
+}
+
+.liva-stage-table th {
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--liva-text-soft);
+  text-transform: uppercase;
+  border: 0;
+}
+
+.liva-stage-table td {
+  padding: 18px 18px;
+  font-size: 14.5px;
+  color: #242933;
+  border-bottom: 1px solid #eef2f6;
+  vertical-align: middle;
+}
+
+.liva-stage-table tbody tr:hover {
+  background: #fafcfd;
+}
+
+.liva-stage-table-total td {
+  font-weight: 700;
+  color: #161c27;
+  border-bottom: 0;
+}
+
+/* 3 Learner Classification Cards */
+.liva-level-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.liva-level-metric-card {
+  border: 1px solid var(--liva-border);
+  border-left: 4px solid var(--liva-blue);
+  border-radius: var(--liva-radius-lg);
+  padding: 22px 24px 24px;
+  background: var(--liva-white);
+}
+
+.liva-level-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--liva-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.liva-level-card-range {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--liva-blue);
+  margin-bottom: 22px;
+}
+
+/* Number Inputs Row */
+.liva-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.liva-range-box {
+  width: 58px;
+  height: 38px;
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-sm);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--liva-ink);
+  background: var(--liva-surface-subtle);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.liva-range-box-active {
+  background: var(--liva-white);
+  cursor: text;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.liva-range-box-active:focus {
+  border-color: var(--liva-blue);
+  box-shadow: 0 0 0 3px rgba(41, 119, 155, 0.12);
+}
+
+.liva-range-to {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--liva-muted);
+}
+
+/* Bottom Centered Action Buttons */
+.liva-scoring-bottom-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.liva-scoring-bottom-actions .liva-btn {
+  min-width: 105px;
+}
+
+@media (max-width: 900px) {
+  .liva-stage-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .liva-level-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Remove card border & padding around Question Bank table */
+.liva-panel.liva-panel-borderless {
+  border: none;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ── Placement Test: Stage Pill Filter Bar ── */
+.liva-stage-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 6px 0 24px;
+  flex-wrap: wrap;
+}
+
+.liva-stage-filter-bar strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--liva-ink);
+  white-space: nowrap;
+}
+
+.liva-stage-pills {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.liva-stage-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 27.4px;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1;
+  border-radius: var(--liva-radius-pill);
+  background: #dff2fb;
+  border: 1.5px solid transparent;
+  color: #204564;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.liva-stage-pill:first-child {
+  width: 72px;
+}
+
+.liva-stage-pill:hover {
+  background: #cde8f6;
+}
+
+/* Active Selected Pill (matches Figma "All" outlined pill) */
+.liva-stage-pill.active {
+  background: #dff2fb;
+  border-color: #244b6b;
+  color: #0f2c47;
+  font-weight: 600;
+}
+
+/* Placement Question Table Header & Column Alignments */
+.liva-panel .liva-table thead tr {
+  background: #dff2fb;
+}
+
+.liva-panel .liva-table th {
+  color: var(--liva-text-soft);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-bottom: 0;
+  padding: 14px 14px;
+}
+
+/* Center STAGE, PTS, and ACTION headers & column cells */
+.liva-panel .liva-table th:nth-child(3),
+.liva-panel .liva-table td:nth-child(3),
+.liva-panel .liva-table th:nth-child(4),
+.liva-panel .liva-table td:nth-child(4),
+.liva-panel .liva-table th:nth-child(5),
+.liva-panel .liva-table td:nth-child(5) {
+  text-align: center;
+}
+
+/* Center action buttons container */
+.liva-panel .liva-table td:nth-child(5) .liva-table-actions {
+  justify-content: center;
+}
+
+/* ── Add Question Modal: Answer Options ── */
+.liva-option-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.liva-option-field-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  width: 100% !important;
+}
+
+.liva-option-field-row .liva-option-radio {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid #205f85 !important;
+  border-radius: var(--liva-radius-round) !important;
+  outline: none !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  background-color: var(--liva-white) !important;
+  display: grid !important;
+  place-content: center !important;
+  transition: border-color 0.15s ease !important;
+}
+
+.liva-option-field-row .liva-option-radio:checked {
+  border-color: #205f85 !important;
+}
+
+.liva-option-field-row .liva-option-radio:checked::before {
+  content: "" !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: var(--liva-radius-round) !important;
+  background-color: #205f85 !important;
+}
+
+.liva-option-field-row .liva-input {
+  flex: 1 !important;
+  height: 44px !important;
+  border: 1px solid var(--liva-border) !important;
+  border-radius: var(--liva-radius-md) !important;
+  padding: 0 14px !important;
+  font-size: 14px !important;
+  background: var(--liva-white) !important;
+  box-sizing: border-box !important;
+}
+
+.liva-option-field-row .liva-input:focus {
+  border-color: var(--liva-blue);
+  box-shadow: 0 0 0 3px rgba(41, 119, 155, 0.12);
+}
+
+#liva-add-points {
+  background: var(--liva-white);
+  color: var(--liva-text);
+  font-weight: 500;
+}
+
+/* ── Custom SVG Radio Buttons ── */
+/* Toggle checked/unchecked SVGs cleanly */
+.liva-option-field-row .liva-custom-radio-label .liva-radio-icon-wrap svg:nth-child(2),
+.liva-option-field-row input[type="radio"]:checked ~ .liva-radio-icon-wrap svg:first-child {
+  display: none !important;
+}
+
+/* ── Outline Delete Button with Clean recycle_bin.svg ── */
+.liva-btn-delete-outline {
+  background: var(--liva-white) !important;
+  border: 1.5px solid var(--liva-danger) !important;
+  color: var(--liva-danger) !important;
+  border-radius: var(--liva-radius-md) !important;
+  padding: 8px 22px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  transition: all 0.15s ease !important;
+}
+
+.liva-btn-delete-outline:hover {
+  background: #fde8e8 !important;
+}
+
+.liva-btn-delete-outline svg {
+  width: 16px !important;
+  height: 16px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   PLACEMENT TEST SUITE (Intro, Quiz Runner, and Result)
+   ════════════════════════════════════════════════════════════════ */
+
+.liva-placement-page-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* ── 1. Test Intro Section ── */
+.liva-placement-intro-hero {
+  background: #eef8fc;
+  border-radius: var(--liva-radius-xl);
+  padding: 48px 30px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.liva-placement-intro-hero h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--liva-ink-strong);
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+.liva-placement-intro-hero p {
+  font-size: 14.5px;
+  color: #4a5568;
+  margin: 0 0 24px;
+}
+
+.liva-btn-intro {
+  padding: 10px 26px;
+  font-size: 14px;
+  border-radius: var(--liva-radius-sm);
+  background: var(--liva-blue);
+}
+
+/* 3 Stat / Metric Cards */
+.liva-placement-intro-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 38px;
+}
+
+.liva-placement-intro-fact {
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-md);
+  padding: 24px 20px;
+  background: var(--liva-white);
+}
+
+.liva-placement-intro-fact strong {
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--liva-ink-strong);
+  margin-bottom: 4px;
+}
+
+.liva-placement-intro-fact span {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Intro Body Copy */
+.liva-placement-intro-content {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #333d4b;
+}
+
+.liva-intro-lead {
+  margin-bottom: 28px;
+}
+
+.liva-placement-intro-content h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--liva-ink-strong);
+  margin: 28px 0 12px;
+}
+
+.liva-placement-intro-content p {
+  margin: 0 0 14px;
+}
+
+.liva-intro-stage-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.liva-intro-stage-list li {
+  padding: 4px 0;
+}
+
+/* ── 2. Quiz Runner ── */
+.liva-runner-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #718096;
+  margin-bottom: 18px;
+}
+
+.liva-runner-breadcrumbs a {
+  color: #4a5568;
+}
+
+.liva-runner-breadcrumbs a:hover {
+  color: var(--liva-blue);
+}
+
+.liva-runner-breadcrumbs .current {
+  color: var(--liva-ink-strong);
+  font-weight: 600;
+}
+
+/* Top Progress Bar */
+.liva-runner-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.liva-runner-bar-wrap {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: var(--liva-radius-pill);
+  overflow: hidden;
+}
+
+.liva-runner-bar-fill {
+  height: 100%;
+  background: var(--liva-blue);
+  border-radius: var(--liva-radius-pill);
+  transition: width 0.3s ease;
+}
+
+.liva-runner-bar-pct {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--liva-ink-strong);
+  min-width: 38px;
+  text-align: right;
+}
+
+/* Quiz Question Cards */
+.liva-quiz-card {
+  background: var(--liva-white);
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-lg);
+  padding: 24px 26px;
+  margin-bottom: 22px;
+}
+
+.liva-quiz-qnum {
+  display: block;
+  font-size: 12px;
+  color: #718096;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.liva-quiz-qtitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--liva-ink-strong);
+  margin: 0 0 14px;
+}
+
+.liva-quiz-qpassage {
+  background: var(--liva-surface-subtle);
+  border-left: 3px solid var(--liva-blue);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 13.5px;
+  color: #4a5568;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Quiz Radio Options */
+.liva-quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.liva-quiz-option-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-md);
+  padding: 11px 16px;
+  background: var(--liva-white);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.liva-quiz-option-label input[type="radio"] {
+  display: none;
+}
+
+.liva-quiz-radio-custom {
+  width: 17px;
+  height: 17px;
+  border-radius: var(--liva-radius-round);
+  border: 2px solid #a0aec0;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.liva-quiz-option-label:has(input:checked) {
+  background: var(--liva-blue-tint);
+  border-color: var(--liva-blue);
+}
+
+.liva-quiz-option-label:has(input:checked) .liva-quiz-radio-custom {
+  border-color: var(--liva-blue);
+  background: var(--liva-white);
+}
+
+.liva-quiz-option-label:has(input:checked) .liva-quiz-radio-custom::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: var(--liva-radius-round);
+  background: var(--liva-blue);
+  display: block;
+}
+
+.liva-quiz-option-text {
+  font-size: 14px;
+  color: #2d3748;
+}
+
+.liva-quiz-submit-row {
+  margin-top: 32px;
+  text-align: center;
+}
+
+/* ── 3. Quiz Result ── */
+.liva-result-container {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.liva-result-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.liva-result-illustration img {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.liva-result-headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.liva-result-score-label,
+.liva-result-level-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--liva-ink-strong);
+}
+
+.liva-result-score-num {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--liva-ink-strong);
+  margin-right: 14px;
+}
+
+.liva-result-level-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--liva-blue-tint);
+  color: var(--liva-blue);
+  padding: 6px 18px;
+  border-radius: var(--liva-radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.liva-result-summary {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #4a5568;
+}
+
+.liva-result-action {
+  margin-bottom: 48px;
+}
+
+.liva-btn-return {
+  border-color: var(--liva-blue);
+  color: var(--liva-blue);
+  padding: 10px 24px;
+  font-size: 14px;
+  border-radius: var(--liva-radius-sm);
+}
+
+.liva-btn-return:hover {
+  background: #eef8fc;
+  border-color: var(--liva-deep);
+  color: var(--liva-deep);
+}
+
+/* Recommended Courses */
+.liva-result-recommended {
+  text-align: left;
+}
+
+.liva-result-recommended h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--liva-ink-strong);
+  margin-bottom: 18px;
+}
+
+.liva-result-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.liva-rec-card {
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-lg);
+  padding: 24px 22px;
+  background: var(--liva-white);
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.liva-rec-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--liva-shadow);
+}
+
+.liva-rec-pill {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  background: var(--liva-blue-tint);
+  color: var(--liva-blue);
+  padding: 4px 14px;
+  border-radius: var(--liva-radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.liva-rec-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--liva-ink-strong);
+  margin: 0 0 10px;
+}
+
+.liva-rec-rating {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.liva-rec-stars {
+  color: #f6c324;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.liva-rec-review-count {
+  font-size: 11.5px;
+  color: #718096;
+}
+
+@media (max-width: 768px) {
+  .liva-placement-intro-facts,
+  .liva-result-courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ADMIN COURSES DASHBOARD
+   ════════════════════════════════════════════════════════════════ */
+
+.liva-courses-admin-wrap {
+  width: 100%;
+}

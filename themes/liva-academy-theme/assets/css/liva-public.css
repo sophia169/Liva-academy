@@ -1,0 +1,998 @@
+/*
+ * Homepage, public catalogue, and primary navigation refinements.
+ * Loaded after liva.css so these design-pass overrides intentionally win.
+ */
+
+/* v1.1 design pass: homepage and My learning catalogue */
+.home .liva-site-header {
+  position: relative;
+  border-bottom: 0;
+  backdrop-filter: none;
+  background: var(--liva-white);
+}
+
+.home .liva-header-inner {
+  height: var(--liva-header-height);
+}
+
+.home .liva-brand img,
+.home .liva-brand .custom-logo {
+  width: 122px;
+}
+
+.home .liva-primary-nav {
+  font-size: 13px;
+  gap: 24px;
+  font-weight: 600;
+}
+
+.home .liva-header-actions {
+  gap: 14px;
+}
+
+.home .liva-header-actions .liva-text-link {
+  font-weight: 600;
+}
+
+.home .liva-header-actions .liva-btn {
+  background: #2f829f;
+  border-color: #2f829f;
+  border-radius: var(--liva-radius-sm);
+  padding: 10px 16px;
+}
+
+.liva-home-hero {
+  padding: 54px 0 64px;
+  background: var(--liva-white);
+}
+
+.liva-home-hero-grid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.liva-home-hero-copy {
+  padding-left: 4px;
+}
+
+.liva-home-hero-copy h1 {
+  font-size: clamp(40px, 4.2vw, 58px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  margin: 0 0 16px;
+  color: #11172b;
+  max-width: 570px;
+}
+
+.liva-home-hero-copy h1 span {
+  position: relative;
+  z-index: 1;
+}
+
+.liva-home-hero-copy h1 span:after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: 4px;
+  height: 10px;
+  background: #f5c64d;
+  z-index: -1;
+}
+
+.liva-home-hero-copy p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #525969;
+  max-width: 515px;
+  margin: 0 0 22px;
+}
+
+.liva-home-placement-link {
+  display: block;
+  width: max-content;
+  margin-top: 13px;
+  text-decoration: underline;
+  font-size: 13px;
+  font-weight: 650;
+  color: #222838;
+}
+
+.liva-home-hero-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.liva-home-hero-art img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+}
+
+.liva-home-section {
+  padding: 64px 0;
+  background: var(--liva-white);
+}
+
+.liva-home-section-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 34px;
+}
+
+.liva-home-kicker {
+  display: inline-flex;
+  background: #dff4fb;
+  color: #317a98;
+  border-radius: var(--liva-radius-pill);
+  padding: 5px 14px;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.liva-home-section-heading h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0 0 8px;
+  color: #171b30;
+}
+
+.liva-home-section-heading p {
+  font-size: 13px;
+  color: #7b8190;
+  margin: 0;
+}
+
+.liva-home-course-grid {
+  gap: 18px;
+}
+
+.liva-home-course-grid .liva-course-card {
+  padding: 10px;
+  border-radius: var(--liva-radius-lg);
+  box-shadow: none;
+}
+
+.liva-home-course-grid .liva-course-thumb {
+  border-radius: var(--liva-radius-sm);
+  aspect-ratio: 1.38/1;
+  padding: 0;
+}
+
+.liva-home-course-grid .liva-course-thumb:after {
+  display: none;
+}
+
+.liva-course-price-badge {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #f4c83d;
+  color: #202020;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 7px 9px;
+  border-bottom-left-radius: 5px;
+}
+
+.liva-home-course-grid .liva-course-card-body {
+  padding: 10px 2px 3px;
+}
+
+.liva-home-course-grid .liva-pill {
+  font-size: 10px;
+  padding: 4px 13px;
+}
+
+.liva-home-course-grid .liva-course-card h3 {
+  font-size: 16px;
+  margin: 8px 0 7px;
+}
+
+.liva-home-course-rating {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: #8b8f98;
+}
+
+.liva-home-course-rating .stars,
+.liva-home-stars {
+  color: #f6c324;
+  letter-spacing: 1px;
+}
+
+.liva-home-center-action {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.liva-home-center-action .liva-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+
+.liva-home-how {
+  padding-top: 32px;
+}
+
+.liva-home-journey-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 1030px;
+  margin: 0 auto;
+}
+
+.liva-home-steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.liva-home-step {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 15px;
+  padding: 16px 0;
+  border-bottom: 1px solid #aeb3ba;
+}
+
+.liva-home-step:last-child {
+  border-bottom: 0;
+}
+
+.liva-home-step .num {
+  width: 28px;
+  height: 28px;
+  background: var(--liva-deep);
+  color: var(--liva-white);
+  border-radius: var(--liva-radius-round);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.liva-home-step h3 {
+  font-size: 14px;
+  margin: 0 0 5px;
+  color: #202536;
+}
+
+.liva-home-step p {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #5e6571;
+  margin: 0;
+}
+
+.liva-home-journey-card {
+  background: #4b9abb;
+  border-radius: var(--liva-radius-3xl);
+  padding: 34px 44px;
+  text-align: center;
+  color: var(--liva-white);
+}
+
+.liva-home-journey-card h3 {
+  font-size: 20px;
+  margin: 0 0 18px;
+}
+
+.liva-home-journey-card div {
+  background: #bfe7f5;
+  color: #21445b;
+  border-radius: var(--liva-radius-pill);
+  padding: 10px 18px;
+  margin: 10px 0;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.liva-home-classroom {
+  background: #f1f1f1;
+  text-align: center;
+  padding: 48px 0;
+}
+
+.liva-home-classroom h2 {
+  font-size: 27px;
+  margin: 4px 0 6px;
+  color: #1a1e31;
+}
+
+.liva-home-classroom p {
+  font-size: 13px;
+  color: #858994;
+  margin: 0 auto 18px;
+  max-width: 620px;
+}
+
+.liva-home-classroom .liva-btn {
+  font-size: 13px;
+  padding: 10px 22px;
+}
+
+.liva-home-reviews {
+  padding-bottom: 40px;
+}
+
+.liva-home-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.liva-home-review-card {
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: var(--liva-radius-xs);
+  padding: 25px;
+  min-height: 210px;
+}
+
+.liva-home-review-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #2e6f8d;
+  font-size: 14px;
+}
+
+.liva-home-review-top span {
+  font-size: 38px;
+  line-height: 0.8;
+  color: #96d3e8;
+  font-weight: 800;
+}
+
+.liva-home-review-card p {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #777d87;
+  margin: 14px 0;
+}
+
+.liva-home-review-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.liva-home-review-person img {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--liva-radius-round);
+  object-fit: cover;
+}
+
+.liva-home-review-person strong {
+  display: block;
+  font-size: 12px;
+  color: #2f3444;
+}
+
+.liva-home-review-person small {
+  display: block;
+  font-size: 10px;
+  color: #8f949c;
+}
+
+.liva-home-bottom-cta {
+  padding: 0 0 28px;
+}
+
+.liva-home-bottom-cta-inner {
+  background: #e5e5e5;
+  padding: 20px 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.liva-home-bottom-cta h3 {
+  font-size: 15px;
+  margin: 0 0 5px;
+}
+
+.liva-home-bottom-cta p {
+  font-size: 11px;
+  color: #5f646c;
+  margin: 0;
+  max-width: 560px;
+}
+
+.liva-home-cta-button {
+  border: 1px solid #b8bec5 !important;
+  color: #31526a !important;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 10px 18px;
+  background: var(--liva-white) !important;
+}
+
+.liva-site-footer {
+  margin-top: 0;
+  border-top: 0;
+  padding: 48px 0 20px;
+  background: #062d45;
+  color: var(--liva-white);
+}
+
+.liva-footer-grid {
+  grid-template-columns: 1.35fr repeat(3, 0.7fr);
+  gap: 56px;
+  max-width: 980px;
+}
+
+.liva-footer-brand img {
+  width: 120px;
+  max-height: 46px;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: normal;
+  margin-bottom: 18px;
+}
+
+.liva-footer-brand p {
+  color: #b7cad6;
+  max-width: 270px;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.liva-footer-social {
+  font-size: 10px;
+  color: var(--liva-white);
+  margin-top: 16px;
+}
+
+.liva-site-footer h3 {
+  font-size: 14px;
+  margin: 0 0 15px;
+  color: var(--liva-white);
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.liva-site-footer h3:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 18px;
+  height: 2px;
+  background: #9ed8eb;
+}
+
+.liva-site-footer a {
+  color: #c8d6df;
+  margin: 8px 0;
+  font-size: 11px;
+}
+
+.liva-footer-bottom {
+  max-width: 980px;
+  border-top: 0;
+  padding-top: 28px;
+  margin-top: 28px;
+  color: #a8becb;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* My learning is the public catalogue, not the enrolled-course list. */
+.page .liva-page-content:not(.liva-page-content-app) {
+  width: min(1120px, calc(100% - 40px));
+  padding: 48px 0 64px;
+}
+
+.liva-learning-header {
+  margin: 0 0 42px;
+}
+
+.liva-learning-header h1 {
+  font-size: 34px;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  color: #111423;
+}
+
+.liva-learning-header p {
+  font-size: 14px;
+  color: #262b35;
+  font-weight: 600;
+}
+
+.liva-learning-tabs {
+  display: flex;
+  border-bottom: 1px solid #6f747b;
+  margin: 0 8px 38px;
+}
+
+.liva-learning-tabs a {
+  flex: 1;
+  text-align: center;
+  padding: 13px 10px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #777;
+  font-weight: 600;
+}
+
+.liva-learning-tabs a.active {
+  color: #205f85;
+  border-bottom: 2px solid #205f85;
+}
+
+.liva-catalog-filters {
+  margin: 20px 0 28px;
+  width: 100%;
+}
+
+.liva-search-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 50%;           /* Scales total length to half */
+  min-width: 320px;     /* Ensures usability on narrow containers */
+}
+
+.liva-search-input-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.liva-search-input-wrap > span {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;      /* Scales up magnifying icon to match Figma */
+  font-weight: 700;
+  line-height: 1;
+  color: var(--liva-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.liva-search-input-wrap .liva-search,
+.liva-search-input-wrap .liva-input {
+  width: 100% !important;
+  max-width: none !important; /* Removes 420px limit so it fills up to the button */
+  height: 48px;
+  padding: 0 16px 0 46px;   /* Creates room for the larger icon */
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-md);
+  background: var(--liva-white);
+  font-size: 14.5px;
+  color: var(--liva-text);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.liva-search-input-wrap .liva-search:focus,
+.liva-search-input-wrap .liva-input:focus {
+  border-color: var(--liva-blue);
+  box-shadow: 0 0 0 3px rgba(41, 119, 155, 0.12);
+}
+
+.liva-search-button {
+  height: 48px;
+  padding: 0 24px;
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-md);
+  background: var(--liva-white);
+  color: var(--liva-text);
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;       /* Prevents button from compressing */
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+}
+
+/* Hover & Focus state matching level badges */
+.liva-search-button:hover,
+.liva-search-button:focus {
+  border-color: var(--liva-blue);
+  color: var(--liva-deep);
+  background: var(--liva-pale);
+}
+
+.liva-level-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.liva-level-filter strong {
+  font-weight: 600;
+  margin-right: 2px;
+}
+
+.liva-level-filter a {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--liva-radius-sm);
+  border: 1px solid var(--liva-border);
+  background: var(--liva-white);
+  color: var(--liva-text);
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.liva-level-filter a:hover,
+.liva-level-filter a.active {
+  border-color: var(--liva-blue);
+  color: var(--liva-deep);
+  background: var(--liva-pale);
+  font-weight: 600;
+}
+
+.liva-learning-course-grid,
+.liva-listening-grid {
+  gap: 24px 26px;
+}
+
+.liva-learning-course-grid .liva-course-card,
+.liva-listening-grid .liva-video-card {
+  border-color: #d5d5d5;
+  border-radius: var(--liva-radius-xl);
+  padding: 12px;
+}
+
+.liva-learning-course-grid .liva-course-thumb {
+  aspect-ratio: 1.27/1;
+  border-radius: 7px;
+  padding: 0;
+}
+
+.liva-learning-course-grid .liva-course-thumb:after {
+  display: none;
+}
+
+.liva-learning-course-grid .liva-course-card-body {
+  padding: 9px 2px 4px;
+}
+
+.liva-learning-course-grid .liva-pill,
+.liva-listening-grid .liva-pill {
+  font-size: 10px;
+  padding: 4px 17px;
+}
+
+.liva-learning-course-grid .liva-course-card h3,
+.liva-listening-grid .liva-video-card h3 {
+  font-size: 17px;
+  line-height: 1.2;
+  color: #1a1d36;
+  margin: 10px 0 8px;
+}
+
+.liva-learning-course-grid .liva-card-meta {
+  font-size: 12px;
+  color: #858585;
+}
+
+.liva-course-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 7px;
+}
+
+.liva-course-price-row strong {
+  font-size: 17px;
+  color: #242743;
+}
+
+.liva-course-price-row span {
+  color: #f4bd17;
+  font-size: 17px;
+}
+
+.liva-course-price-row small {
+  font-size: 12px;
+  color: #8e8e8e;
+}
+
+.liva-listening-grid .liva-video-thumb {
+  aspect-ratio: 1.45/1;
+  border-radius: 7px;
+  background: #000;
+  font-size: 0;
+  margin-bottom: 10px;
+}
+
+.liva-listening-grid .liva-video-thumb span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  font-size: 38px;
+  color: var(--liva-white);
+}
+
+.liva-listening-grid .liva-video-card .meta {
+  font-size: 12px;
+  color: #696d73;
+  margin: 4px 0 2px;
+}
+
+.liva-listening-grid .liva-video-card {
+  padding-bottom: 18px;
+}
+
+.liva-catalog-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 30px 0 0;
+}
+
+.liva-catalog-pagination a,
+.liva-catalog-pagination span {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: var(--liva-radius-xs);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: #313943;
+  background: var(--liva-white);
+}
+
+.liva-catalog-pagination a.active {
+  border-color: #2c7295;
+  color: #2c7295;
+  font-weight: 700;
+}
+
+.liva-catalog-pagination a.nav {
+  background: #e3e3e3;
+}
+
+.liva-catalog-pagination a.disabled {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+@media (max-width: 980px) {
+  .liva-home-hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .liva-home-hero-copy h1 {
+    font-size: 42px;
+  }
+  .liva-home-journey-grid {
+    gap: 28px;
+  }
+  .liva-footer-grid {
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 760px) {
+  .liva-home-hero {
+    padding: 38px 0;
+  }
+  .liva-home-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .liva-home-hero-art {
+    order: -1;
+    min-height: 220px;
+  }
+  .liva-home-hero-art img {
+    max-width: 520px;
+  }
+  .liva-home-section {
+    padding: 48px 0;
+  }
+  .liva-home-journey-grid {
+    grid-template-columns: 1fr;
+  }
+  .liva-home-review-grid {
+    grid-template-columns: 1fr;
+  }
+  .liva-home-bottom-cta-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    padding: 22px;
+  }
+  .liva-footer-bottom {
+    flex-direction: column;
+  }
+  .liva-search-line {
+    max-width: none;
+  }
+  .liva-level-filter {
+    flex-wrap: wrap;
+  }
+  .liva-level-filter strong {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .liva-home-hero-copy h1 {
+    font-size: 36px;
+  }
+  .liva-home-section-heading h2 {
+    font-size: 26px;
+  }
+  .liva-home-classroom h2 {
+    font-size: 24px;
+  }
+  .liva-home-journey-card {
+    padding: 28px 18px;
+  }
+  .liva-learning-tabs {
+    margin-inline: 0;
+  }
+  .liva-search-line {
+    flex-direction: column;
+  }
+  .liva-search-button {
+    height: 42px;
+  }
+  .liva-level-filter a {
+    min-width: auto;
+    padding-inline: 13px;
+  }
+}
+
+.liva-primary-nav > a:nth-child(1),
+.liva-primary-nav > a:nth-child(2),
+.liva-primary-nav > a:nth-child(4) {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.liva-primary-nav > a:nth-child(1)::after,
+.liva-primary-nav > a:nth-child(2)::after,
+.liva-primary-nav > a:nth-child(4)::after {
+  content: "";
+  display: inline-block;
+  width: 5.5px;
+  height: 5.5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -3px;
+  transition: transform 0.2s ease;
+}
+
+/* --- Navigation & Dropdown Styling --- */
+.liva-primary-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  flex: 1;
+  margin-left: 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.liva-nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 76px; /* Matches header inner height for seamless hover bridging */
+}
+
+.liva-nav-item > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.liva-nav-item:hover > a {
+  color: var(--liva-blue);
+}
+
+/* Figma Chevron Arrow for Dropdowns */
+.liva-nav-item.has-dropdown > a::after {
+  content: "";
+  display: inline-block;
+  width: 5.5px;
+  height: 5.5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -3px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.liva-nav-item.has-dropdown:hover > a::after {
+  transform: rotate(225deg);
+  margin-top: 2px;
+}
+
+/* Dropdown Menu Container */
+.liva-dropdown-menu {
+  position: absolute;
+  top: 66px;
+  left: 0;
+  min-width: 190px;
+  background: var(--liva-white);
+  border: 1px solid var(--liva-border);
+  border-radius: var(--liva-radius-lg);
+  box-shadow: 0 12px 30px rgba(11, 43, 75, 0.1);
+  padding: 6px 0;
+  display: none;
+  flex-direction: column;
+  z-index: 100;
+}
+
+/* Show on Hover */
+.liva-nav-item:hover .liva-dropdown-menu {
+  display: flex;
+}
+
+/* Dropdown Links */
+.liva-dropdown-menu a {
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--liva-text);
+  white-space: nowrap;
+  display: block;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.liva-dropdown-menu a:hover {
+  background: var(--liva-pale);
+  color: var(--liva-deep);
+}
+
+/* Mobile Nav Support */
+@media (max-width: 760px) {
+  .liva-nav-item {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .liva-dropdown-menu {
+    position: static;
+    display: flex;
+    box-shadow: none;
+    border: none;
+    padding-left: 12px;
+    background: transparent;
+  }
+}

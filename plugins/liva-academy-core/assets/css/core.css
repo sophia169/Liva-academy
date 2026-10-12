@@ -1,0 +1,4 @@
+/* Core intentionally relies on the Liva Academy theme design system.
+   These fallbacks keep basic forms usable if the plugin is activated first. */
+.liva-form-error,.liva-form-success{padding:10px 12px;border-radius:8px;margin-bottom:12px}
+.liva-form-error{background:#fff0f1}.liva-form-success{background:#edfff6}
